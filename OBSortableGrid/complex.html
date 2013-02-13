@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012. OnaBai Software Solutions.
+  ~ Copyright (c) 2012. VERBoTec Software Solutions.
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Powered by Zafu. OnaBai 2012-2013 (c)</title>
+
+    <!-- Kendo UI Web styles-->
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.silver.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Kendo UI Web scripts-->
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/jquery.min.js" type="text/javascript"></script>
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/kendo.web.min.js" type="text/javascript"></script>
+    <script src="kendoOBSortableGrid.js" type="text/javascript"></script>
+
+    <!-- OB Styles -->
+
+    <!-- Local Styles -->
+    <style type="text/css">
+        html {
+            font-family: sans-serif;
+            font-size: 12pt;
+        }
+
+        /* =============================================== */
+        /* Styles for Sortable Grid  Widget                */
+        .ob-sortable-grid {
+        }
+
+        .ob-sortable-grid-item {
+            cursor: move;
+        }
+
+        .ob-sortable-grid-item {
+            cursor: move;
+        }
+
+        .ob-sortable-grid-item:before {
+            /*background-image: url("images/palette.ico");*/
+            /*background-size: 24px;*/
+            /*content: " ";*/
+            /*display: inline-block;*/
+            /*width: 24px;*/
+            /*height: 24px;*/
+            /*margin: 3px 6px 0 0;*/
+        }
+        .ob-sortable-grid-row {
+        }
+
+        .ob-sortable-grid-separator {
+            border: 1px solid #c5c5c5;
+            width: 100%;
+            height: 10px;
+        }
+
+        .ob-sortable-grid-item-being-dragged {
+            opacity: 0.4;
+            filter: alpha(opacity = 40);
+            /*outline:none;*/
+            /*box-shadow: 0 0 5px 0 rgba(255, 0, 0, 1);*/
+            /*-webkit-box-shadow: 0 0 7px 0 rgba(255, 0, 0, 1)*/
+        }
+
+            /*                                                 */
+            /* =============================================== */
+
+        #sortable {
+            overflow-x: hidden;
+            background-color: #d3d3d3 !important;
+            padding: 4px;
+            border: 1px solid #c5c5c5;
+            width: auto;
+        }
+
+        .ob-cell {
+            border: 1px solid #a99f9a;
+            color: #2e2e2e;
+            padding: 5px !important;
+            margin: 2px !important;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+    </style>
+
+    <!-- Initialize Form Elements -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            kendo.init($("#sortable"));
+            $("#sortable").kendoOBSortableGrid({});
+        });
+    </script>
+
+</head>
+<body>
+<div id="sortable">
+    <div>
+        <h1 class="ob-cell">This is an H1 header</h1>
+    </div>
+    <div>
+        <h2 class="ob-cell">This is an H2 header</h2>
+    </div>
+    <div>
+        <div class="ob-cell">
+            <label style="width: 200px;">
+                Type a number:
+                <input type="text" data-role="numerictextbox" value="123.45"/>
+            </label>
+            <label style="width: 200px;">
+                Pick a date:
+                <input type="text" data-role="datepicker"/>
+            </label>
+        </div>
+    </div>
+    <div>
+        <div class="ob-cell">
+            <label style="width: 400px;">
+                Type a number:
+                <input type="text" data-role="numerictextbox" value="123.45"/>
+            </label>
+        </div>
+        <div class="ob-cell">
+            <label style="width: 400px;">
+                Pick a date:
+                <input type="text" data-role="datepicker"/>
+            </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
