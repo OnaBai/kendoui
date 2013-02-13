@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*.iml
+cache/*
+.idea/
+log/*
+Thumbs.db
+.DS_Store
