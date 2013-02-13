@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012. OnaBai Software Solutions.
+  ~ Copyright (c) 2012. VERBoTec Software Solutions.
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Powered by Zafu. OnaBai 2012-2013 (c)</title>
+
+    <!-- Kendo UI Web styles-->
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.silver.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Kendo UI Web scripts-->
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/jquery.min.js" type="text/javascript"></script>
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/kendo.web.min.js" type="text/javascript"></script>
+    <script src="kendoOBSortableGrid.js" type="text/javascript"></script>
+
+    <!-- OB Styles -->
+
+    <!-- Local Styles -->
+    <style type="text/css">
+        html {
+            font-family: sans-serif;
+        }
+
+        .ob-item {
+            background-color: #e9e9e9;
+            border: 1px solid #a99f9a;
+            color: #2e2e2e;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .ob-drop-area {
+            background-color: #d3d3d3 !important;
+            padding: 4px;
+            border: 1px solid #c5c5c5;
+        }
+    </style>
+
+    <!-- Initialize Form Elements -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dataSource = [
+                { id:1, text:"Element 1" },
+                { id:1, text:"Element 2" },
+                { id:1, text:"Element 3" },
+                { id:1, text:"Element 4" },
+                { id:1, text:"Element 5" },
+                { id:1, text:"Element 6" }
+            ];
+            $("#sortable").kendoTreeView({
+                dataSource :dataSource,
+                template   :"<div class='ob-item'> #= item.text # </div>",
+                dragAndDrop:true,
+                drag       :function (e) {
+                    var dst = $($(e.dropTarget).closest(".k-item")[0]).data("uid");
+                    var src = $(e.sourceNode).data("uid");
+                    if ($(e.dropTarget).hasClass("ob-item") && dst != src) {
+                        e.setStatusClass("k-insert-top");
+                    } else {
+                        e.setStatusClass("k-denied");
+                    }
+                },
+                drop       :function (e) {
+                    if ($(e.sourceNode).data("uid") !== $(e.destinationNode).data("uid")) {
+                        $(e.sourceNode).insertBefore(e.destinationNode);
+                    }
+                    e.setValid(false);
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div id="sortable"></div>
+</div>
+</body>
+</html>
