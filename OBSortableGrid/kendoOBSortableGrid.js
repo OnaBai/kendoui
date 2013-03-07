@@ -39,7 +39,7 @@
             div.append(drag);
             var separator = $("<div class='ob-sortable-grid-separator'></div>");
             separator.kendoDropTarget({
-                drop:_newRow
+                drop: _newRow
             });
             div.append(separator);
             div.insertAfter(drop.parent());
@@ -48,14 +48,12 @@
     }
 
     var OBSortableGrid = Widget.extend({
-        init   :function (element, options) {
+        init:    function (element, options) {
             var that = this;
-
             Widget.fn.init.call(that, element, options);
             element = that.element;
             options = that.options;
             element.addClass("ob-sortable-grid");
-
             // Decorate element
             $.each(element.children(), function (i, elem) {
                 var row = $(elem);
@@ -67,48 +65,64 @@
                 });
                 row.append("<div class='ob-sortable-grid-separator'></div>");
             });
-
             var items = $(".ob-sortable-grid-item", element);
-
             items.kendoDraggable({
-                hint:options.hint
+                hint:       options.hint,
+                dragstart:  function (ev) {
+                    ev.currentTarget.addClass("ob-sortable-grid-item-original");
+                },
+                dragend:    function (ev) {
+                    ev.currentTarget.removeClass("ob-sortable-grid-item-original");
+                },
+                dragcancel: function (ev) {
+                    ev.currentTarget.removeClass("ob-sortable-grid-item-original");
+                }
             });
-
             items.kendoDropTarget({
-                drop:function (ev) {
+                drop: function (ev) {
                     var drop = this.element;
                     var drag = ev.draggable.currentTarget;
                     if (drop.data("uid") !== drag.data("uid")) {
-                        if (drag.position().left > drop.position().left) {
-                            drag.insertBefore(drop);
+                        var left = drag.position().left - drop.position().left;
+                        var top = drag.position().top - drop.position().top;
+                        if (Math.abs(left) > Math.abs(top)) {
+                            if (left > 0) {
+                                drag.insertBefore(drop);
+                            } else {
+                                drag.insertAfter(drop);
+                            }
                         } else {
-                            drag.insertAfter(drop);
+                            if (top > 0) {
+                                drag.insertBefore(drop);
+                            } else {
+                                drag.insertAfter(drop);
+                            }
                         }
                     }
                     _cleanUnused(this);
                 }
             });
-
             $(".ob-sortable-grid-row", element).kendoDropTarget({
-                drop:function (ev) {
+                drop: function (ev) {
                     var drop = $(".ob-sortable-grid-separator", this.element);
                     var drag = ev.draggable.currentTarget;
                     drag.insertBefore(drop);
                     _cleanUnused(this);
                 }
             });
-
             $(".ob-sortable-grid-separator", element).kendoDropTarget({
-                drop:_newRow
+                drop: _newRow
             });
         },
-        options:{
-            name:"OBSortableGrid",
-            hint:function (element) {
-                return element.clone().addClass("ob-sortable-grid-item-being-dragged");
+        options: {
+            name: "OBSortableGrid",
+            hint: function (element) {
+                var clone = element.clone().addClass("ob-sortable-grid-item-being-dragged");
+                element.addClass("ob-sortable-grid-item-original");
+                return clone;
             }
         },
-        events :[
+        events:  [
         ]
     });
     ui.plugin(OBSortableGrid);

@@ -7,4 +7,4 @@ This project contains several Kendo UI widgets as well as some sample code for u
 
 Contains:
 
-* OBSortableGrid : Similar to jQuery UI sortable (http://jqueryui.com/sortable/) but implemented as a jQueryUI widget.
+* OBSortableGrid : Similar to jQuery UI sortable (http://jqueryui.com/sortable/) but implemented as a KendoUI widget.
