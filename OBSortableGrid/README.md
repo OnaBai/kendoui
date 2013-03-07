@@ -9,4 +9,4 @@ Widget for sorting elements.
 * both.html              : allows to move elements left and right as well as up and down.
 * final.html             : allows to move elements and elements are styled.
 * complex.html           : allows to move elements. The elements are HTML composed of different fields and even other Kendo UI widgets.
-
+* panelbars.html         : Example of moving Panel Bars up and down.
