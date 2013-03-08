@@ -77,7 +77,10 @@
         options: {
             name: "OBSortableGrid",
             hint: function (element) {
+                var width = $(element).width();
+                var height = $(element).height();
                 var clone = element.clone().addClass("ob-sortable-grid-item-being-dragged");
+                $(clone).width(width).height(height);
                 element.addClass("ob-sortable-grid-item-original");
                 return clone;
             }
