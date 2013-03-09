@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2013. OnaBai Software Solutions.  All rights reserved.
+  ~ If you do not own a commercial license, this file shall be governed by the
+  ~ GNU General Public License (GPL) version 3.
+  ~ For GPL requirements, please review: http://www.gnu.org/copyleft/gpl.html
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+
+    <meta charset=utf-8/>
+    <title></title>
+    <!-- Kendo UI Web styles-->
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.metro.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Kendo UI Web scripts-->
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/jquery.min.js" type="text/javascript"></script>
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/kendo.web.min.js" type="text/javascript"></script>
+
+    <link href="kendo.obpanel.css" rel="stylesheet" type="text/css"/>
+    <script src="kendoOBPanel.js"></script>
+
+    <!-- Local Styles -->
+    <style type="text/css">
+    </style>
+
+    <!-- Initialize Form Elements -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#panel0").kendoOBPanel({
+                title: "Panel 0"
+            });
+            kendo.init($("#panel1"))
+        });
+    </script>
+
+</head>
+<body>
+<div id="panel0">This is Panel0</div>
+<div id="panel1" data-role="obpanel" data-title="Panel #5">
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+</div>
+</body>
+</html>
