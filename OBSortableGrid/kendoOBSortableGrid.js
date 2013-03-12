@@ -16,30 +16,30 @@
             Widget.fn.init.call(that, element, options);
             element = that.element;
             options = that.options;
-            element.addClass("ob-sortable-grid");
+            element.addClass("ob-sortablegrid");
             // Decorate element
             $.each(element.children(), function (i, elem) {
                 var row = $(elem);
-                row.addClass("ob-sortable-grid-row");
+                row.addClass("ob-sortablegrid-row");
                 $.each(row.children(), function (j, elem) {
                     var cell = $(elem);
-                    cell.addClass("ob-sortable-grid-item");
+                    cell.addClass("ob-sortablegrid-item");
                     cell.data("uid", kendo.guid());
                 });
             });
-            var items = $(".ob-sortable-grid-item", element);
+            var items = $(".ob-sortablegrid-item", element);
             items.kendoDraggable({
-                container:  $(".ob-sortable-grid"),
+                container:  $(".ob-sortablegrid"),
                 hint:       options.hint,
                 dragstart:  function (ev) {
-                    ev.currentTarget.addClass("ob-sortable-grid-item-original");
+                    ev.currentTarget.addClass("ob-sortablegrid-original");
                 },
                 dragend:    function (ev) {
-                    ev.currentTarget.removeClass("ob-sortable-grid-item-original");
+                    ev.currentTarget.removeClass("ob-sortablegrid-original");
                     this.hint.hide();
                 },
                 dragcancel: function (ev) {
-                    ev.currentTarget.removeClass("ob-sortable-grid-item-original");
+                    ev.currentTarget.removeClass("ob-sortablegrid-original");
                 }
             });
             items.kendoDropTarget({
@@ -65,7 +65,7 @@
                     }
                 }
             });
-            $(".ob-sortable-grid-row", element).kendoDropTarget({
+            $(".ob-sortablegrid-row", element).kendoDropTarget({
                 dragenter: function (ev) {
                     var drop = this.element;
                     var drag = ev.draggable.currentTarget;
@@ -77,11 +77,14 @@
         options: {
             name: "OBSortableGrid",
             hint: function (element) {
-                var width = $(element).width();
-                var height = $(element).height();
-                var clone = element.clone().addClass("ob-sortable-grid-item-being-dragged");
-                $(clone).width(width).height(height);
-                element.addClass("ob-sortable-grid-item-original");
+                var width = element.width();
+                var height = element.height();
+                var clone = element
+                    .clone()
+                    .addClass("ob-sortablegrid-clone")
+                    .width(width)
+                    .height(height);
+                element.addClass("ob-sortablegrid-original");
                 return clone;
             }
         },

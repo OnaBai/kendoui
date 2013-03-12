@@ -16,9 +16,10 @@
     <!-- Kendo UI Web scripts-->
     <script src="http://cdn.kendostatic.com/2012.3.1315/js/jquery.min.js" type="text/javascript"></script>
     <script src="http://cdn.kendostatic.com/2012.3.1315/js/kendo.web.min.js" type="text/javascript"></script>
-    <script src="kendoOBSortableGrid.js" type="text/javascript"></script>
 
-    <!-- OB Styles -->
+    <!-- OB Scripts and Styles -->
+    <script src="kendoOBSortableGrid.js" type="text/javascript"></script>
+    <link href="kendoOBSortableGrid.css" rel="stylesheet" type="text/css"/>
 
     <!-- Local Styles -->
     <style type="text/css">
@@ -28,42 +29,10 @@
         }
 
         /* =============================================== */
-        /* Styles for Sortable Grid  Widget                */
-        .ob-sortable-grid {
-        }
-
-        .ob-sortable-grid-item {
-            cursor: move;
-        }
-
-        .ob-sortable-grid-item {
-            cursor: move;
-        }
-
-        .ob-sortable-grid-item:before {
-            /*background-image: url("images/palette.ico");*/
-            /*background-size: 24px;*/
-            /*content: " ";*/
-            /*display: inline-block;*/
-            /*width: 24px;*/
-            /*height: 24px;*/
-            /*margin: 3px 6px 0 0;*/
-        }
-        .ob-sortable-grid-row {
-        }
-
-        .ob-sortable-grid-separator {
-            border: 1px solid #c5c5c5;
-            width: 100%;
-            height: 10px;
-        }
-
-        .ob-sortable-grid-item-being-dragged {
-            opacity: 0.4;
-            filter: alpha(opacity = 40);
-            /*outline:none;*/
-            /*box-shadow: 0 0 5px 0 rgba(255, 0, 0, 1);*/
-            /*-webkit-box-shadow: 0 0 7px 0 rgba(255, 0, 0, 1)*/
+        .ob-sortablegrid-clone {
+            outline:none;
+            box-shadow: 0 0 5px 0 rgba(127, 127, 127, 1);
+            -webkit-box-shadow: 0 0 7px 0 rgba(127, 127, 127, 1)
         }
 
             /*                                                 */

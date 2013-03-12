@@ -8,9 +8,17 @@
     var kendo = window.kendo,
         ui = kendo.ui,
         Widget = ui.Widget,
-        template = kendo.template("<ul class='ob-panel'>" +
+        template = kendo.template("<ul>" +
             "<li class='k-state-active'>" +
-            "<span class='k-link k-state-selected k-state-focused'>#= title #</span>" +
+            "<span class='k-link k-state-selected k-state-focused'>" +
+            "# if (imageUrl) { #" +
+            "<img class='k-image' alt='' src='#= imageUrl #'/>" +
+            "# } #" +
+            "# if (cssClass) { #" +
+            "<div class='k-sprite #= cssClass #'></div>" +
+            "# } #" +
+            "#= title #" +
+            "</span>" +
             "</li>" +
             "</ul>");
 
@@ -26,10 +34,16 @@
             element.before(that.wrapper);
             that.wrapper.find("span").after(element);
             that.wrapper.kendoPanelBar({});
+            if (options.content) {
+                $(element).load(options.content);
+            }
         },
         options: {
-            name:  "OBPanel",
-            title: "Panel"
+            name:     "OBPanel",
+            title:    "Panel",
+            imageUrl: null,
+            cssClass: null,
+            content:  null
         },
         events:  [
         ]

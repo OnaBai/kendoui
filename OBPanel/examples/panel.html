@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2013. OnaBai Software Solutions.  All rights reserved.
+  ~ If you do not own a commercial license, this file shall be governed by the
+  ~ GNU General Public License (GPL) version 3.
+  ~ For GPL requirements, please review: http://www.gnu.org/copyleft/gpl.html
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+
+    <meta charset=utf-8/>
+    <title></title>
+    <!-- Kendo UI Web styles-->
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.kendostatic.com/2012.3.1315/styles/kendo.blueopal.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Kendo UI Web scripts-->
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/jquery.min.js" type="text/javascript"></script>
+    <script src="http://cdn.kendostatic.com/2012.3.1315/js/kendo.web.min.js" type="text/javascript"></script>
+
+    <script src="../kendoOBPanel.js"></script>
+
+    <!-- Local Styles -->
+    <style type="text/css">
+        .k-panelbar {
+            width: 300px;
+        }
+
+        .k-sprite.ob-image {
+            background-image: url("http://demos.kendoui.com/content/shared/styles/flags.png");
+            background-position: 0 0;
+            margin-top: 10px !important;
+        }
+    </style>
+
+    <!-- Initialize Form Elements -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#panel00").kendoOBPanel({ title: "Panel 00" });
+            $("#panel01").kendoOBPanel({
+                title:    "Panel 01",
+                imageUrl: "http://demos.kendoui.com/content/shared/icons/sports/baseball.png"
+            });
+            $("#panel02").kendoOBPanel({
+                title:    "Panel 02",
+                cssClass: "ob-image"
+            });
+            $("#panel03").kendoOBPanel({
+                title:   "Panel 03",
+                content: "test.html"
+            });
+            kendo.init($("#panel10"));
+            kendo.init($("#panel11"));
+            kendo.init($("#panel12"));
+            kendo.init($("#panel13"));
+        });
+    </script>
+
+</head>
+<body>
+<div id="panel00">Simplest panel just containing some text.</div>
+<div id="panel01">The header of this panel contains an image url</div>
+<div id="panel02">The header of this panel contains an image as CSS class</div>
+<div id="panel03">Content specified using <i>content</i> URL</div>
+<div id="panel10" data-role="obpanel" data-title="Panel #10">
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+</div>
+<div id="panel11"
+     data-role="obpanel"
+     data-title="Panel #11"
+     data-image-url="http://demos.kendoui.com/content/shared/icons/sports/baseball.png">
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+</div>
+<div id="panel12"
+     data-role="obpanel"
+     data-title="Panel #12"
+     data-css-class="ob-image">
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+    <div>Hello, world!</div>
+</div>
+<div id="panel13"
+     data-role="obpanel"
+     data-title="Panel #13"
+     data-css-class="ob-image"
+     data-content="test.html">
+</div>
+</body>
+</html>

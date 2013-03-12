@@ -1,0 +1,20 @@
+.ob-panelgrid {
+    display: table;
+    padding: 5px;
+}
+
+.ob-panelgrid-row {
+    display: table-row;
+    float: left;
+    margin-right: 5px;
+}
+
+.ob-panelgrid-row > * {
+    margin: 5px;
+}
+
+.ob-sortablegrid-original > * {
+    opacity: 0.3;
+    filter: alpha(opacity = 30);
+    /*visibility: hidden;*/
+}

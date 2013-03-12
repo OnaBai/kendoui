@@ -1,0 +1,8 @@
+.ob-sortablegrid-item {
+    /*cursor: move;*/
+}
+.ob-sortablegrid-original {
+    opacity: 0.4;
+    filter: alpha(opacity = 40);
+}
+
